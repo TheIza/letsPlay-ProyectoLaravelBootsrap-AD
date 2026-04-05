@@ -5,7 +5,7 @@
 <div class="container mt-5" style=" padding-top: 20px;">
     <div class="text-center p-4 rounded-3" style="background-color: #ffe5b4;">
         <h1>¡Hola, {{ Auth::user()->name }}!</h1>
-        <p>Bienvenido a <strong>Let's Play</strong>, tu tienda de videojuegos.</p>
+        <p>Bienvenido a <strong>Let's Play</strong>, todos los juegos que puedas pensar estan aqui.</p>
     </div>
 <div style=" background-color: #ccc;">
     <div id="simpleCarousel" class="carousel slide mt-4" data-bs-ride="carousel" style="max-width: 600px; margin: auto; border: 2px solid #ccc;" >

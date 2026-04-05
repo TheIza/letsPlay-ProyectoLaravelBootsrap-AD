@@ -4,7 +4,8 @@
 * arreglar login y register
 * hacer que si eres admin puedas eliminar editar y añadir los productos pero si no eres admin solo puedas verlos
 * hacer carrito de compra
-* si no estas logeado puedes ver productos pero no añadirlos al carro
+* si no estas logeado puedes ver productos pero no añadirlos al carro, tambien si no estas logeado puedes ver el nav y produtcos.
+    * 
 --}}
 
 
@@ -32,7 +33,7 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
                     <img src="{{ $videojuego->imagen_url }}" class="card-img-top" alt="{{ $videojuego->nombre }}" style="height: 200px; object-fit: scale-down;">
-                    
+
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $videojuego->nombre }}</h5>
                         <p class="card-text"><strong>Género:</strong> {{ $videojuego->genero }}</p>
@@ -47,6 +48,7 @@
                                 <button class="btn btn-danger" onclick="return confirm('¿Eliminar?')">Eliminar</button>
 
                             </form>
+                            
                         </div>
                     </div>
                 </div>

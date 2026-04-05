@@ -2,23 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VideojuegoController;
-use App\Http\Controllers\CarritoController;
-
 
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/welcomeLogeado', function () {
     return view('welcomeLogeado');
 })->middleware('auth')->name('welcomeLogeado');
 
-Route::get('/carrito', function () {
-    return view('carrito');
-})->middleware('auth')->name('carrito');
-
 Auth::routes();
 
+// Videojuegos CRUD
+Route::resource('videojuego', VideojuegoController::class);
 
-Route::resource('videojuego', VideojuegoController::class)->middleware('auth');
+
+

@@ -10,11 +10,13 @@ class VideojuegoController extends Controller
     /**
      * enseña la lista de videojuegos que hay en la base de datos, con un maximo de 9 por pagina (para que se vea mejor)
      */
+
     public function index()
     {
         $videojuegos = Videojuego::paginate(9);
         return view('listaVideoJuegos', compact('videojuegos'));
-    }
+
+        }
 
     /**
      * muestra el formulario para crear un nuevo videojuego
@@ -87,4 +89,6 @@ class VideojuegoController extends Controller
 
         return redirect()->route('videojuego.index')->with('success', 'Videojuego eliminado correctamente.');
     }
+
+   
 }
