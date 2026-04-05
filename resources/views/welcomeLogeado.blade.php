@@ -5,7 +5,7 @@
 <div class="container mt-5" style=" padding-top: 20px;">
     <div class="text-center p-4 rounded-3" style="background-color: #ffe5b4;">
         <h1>¡Hola, {{ Auth::user()->name }}!</h1>
-        <p>Bienvenido a <strong>Let's Play</strong>, todos los juegos que puedas pensar estan aqui.</p>
+        <p>Bienvenido a <strong>Let's Play</strong>, todos los juegos que puedas imaginar estan aqui.</p>
     </div>
 <div style=" background-color: #ccc;">
     <div id="simpleCarousel" class="carousel slide mt-4" data-bs-ride="carousel" style="max-width: 600px; margin: auto; border: 2px solid #ccc;" >
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <div style="background-color: #ffcc80; padding: 20px; border-radius: 10px;">
+            <div style="background-color: #ffcc80; padding: 20px; border-radius: 10px; padding-bottom: 32px">
                 <h4>Descubre mas en el apartado <a href="videojuego" style="color: black;">videojuegos</a></h4>
                 
                

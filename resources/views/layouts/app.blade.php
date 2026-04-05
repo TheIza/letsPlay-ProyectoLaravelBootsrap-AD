@@ -46,7 +46,11 @@
                                 Videojuegos
                             </a>
                         </li>
-                      
+                        <li class="nav-item mx-1">
+                            <a class="nav-link px-3 py-1 rounded {{ request()->routeIs('carrito.index') ? 'fw-bold text-orange bg-white bg-opacity-25' : 'text-white' }}" href="{{ route('carrito.index') }}">
+                                <img src="{{ asset('build/assets/images/carrito.png') }}" alt="Carrito" width="20" height="20">
+                            </a>
+                        </li>
                         @endauth
 
                         {{-- Si el usuario NO está logueado --}}
