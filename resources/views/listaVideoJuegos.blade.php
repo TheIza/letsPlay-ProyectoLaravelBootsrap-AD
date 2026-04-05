@@ -48,7 +48,10 @@
                                 <button class="btn btn-danger" onclick="return confirm('¿Eliminar?')">Eliminar</button>
 
                             </form>
-                            
+                            <form action="{{ route('carrito.add', $videojuego) }}" method="POST" class="d-inline">
+                                @csrf
+                                <button class="btn btn-info">Añadir al carrito</button>
+                            </form>
                         </div>
                     </div>
                 </div>
