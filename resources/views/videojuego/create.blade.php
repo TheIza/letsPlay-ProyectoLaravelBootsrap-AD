@@ -58,7 +58,7 @@
 
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Crear Videojuego</button>
+        <button type="submit" class="btn btn-primary">Confirmar</button>
 <br>
 <br>
          <a href="{{ route('videojuego.index') }}" style="color: white; border: 1px solid red; background-color: red; border-radius: 5px; padding: 8px; text-decoration: none;" >VOLVER</a>
