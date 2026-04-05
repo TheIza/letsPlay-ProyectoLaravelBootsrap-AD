@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class VideojuegoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * enseña la lista de videojuegos que hay en la base de datos, con un maximo de 9 por pagina (para que se vea mejor)
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class VideojuegoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * muestra el formulario para crear un nuevo videojuego
      */
     public function create()
     {
@@ -25,7 +25,7 @@ class VideojuegoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * guarda el nuevo videojuego en la base de datos, y antes valida los datos para poder guardarlos
      */
     public function store(Request $request)
     {
@@ -44,7 +44,7 @@ class VideojuegoController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * muestra los detalles de un videojuego mediante su id 
      */
     public function show(Videojuego $videojuego)
     {
@@ -52,7 +52,7 @@ class VideojuegoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * muestra el formulario para editar un videojuego mediante su id
      */
     public function edit(Videojuego $videojuego)
     {
@@ -60,7 +60,7 @@ class VideojuegoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * actualiza un videojuego en la base de datos mediante el id, y como en el store valida los datos
      */
     public function update(Request $request, Videojuego $videojuego)
     {
@@ -79,7 +79,7 @@ class VideojuegoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * borra el videojuego de la base de datos mediante su id
      */
     public function destroy(Videojuego $videojuego)
     {

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container" style="margin-top: 100px;">
 
     <h1>{{ $videojuego->nombre }}</h1>
 
@@ -22,9 +22,9 @@
 
     <br><br>
 
-    <a href="{{ route('videojuego.index') }}" class="btn btn-secondary">Volver a la lista</a>
+    <a href="{{ route('videojuego.index') }}" class="btn btn-secondary">Volver</a>
 
-    <a href="{{ route('videojuego.edit', $videojuego) }}" class="btn btn-warning">Editar</a>
+   
 
 </div>
 

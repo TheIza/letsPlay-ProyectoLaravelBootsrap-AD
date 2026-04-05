@@ -21,11 +21,11 @@
 
 <body>
     <div id="app">
-       <nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top " style="background: #ff8c00; border-radius: 0 0 15px 15px;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top" style="background: #ff8c00; border-radius: 0 0 15px 15px;">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}" style="color: white;">
-            <img src="{{ asset('build/assets/images/letsplay.jpg') }}" alt="Let's play logo" width="70" height="70" style="border-radius: 10px;">
-            <strong>Let's play</strong>
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('welcomeLogeado') }}">
+            <img src="{{ asset('build/assets/images/letsplay.jpg') }}" alt="Let's play logo" width="70" height="70" style="border-radius: 10px; margin-right: 10px;">
+            <strong class="text-white">Let's play</strong>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
@@ -33,57 +33,46 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
             <ul class="navbar-nav me-auto">
                 @auth
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ url('/') }}">Inicio</a>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link px-3 py-1 rounded {{ request()->routeIs('welcomeLogeado') ? 'fw-bold text-orange bg-white bg-opacity-25' : 'text-white' }}" href="{{ route('welcomeLogeado') }}">
+                            Inicio
+                        </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="{{ route('videojuego.index') }}">Videojuegos</a>
+                    <li class="nav-item mx-1">
+                        <a class="nav-link px-3 py-1 rounded {{ request()->routeIs('videojuego.index') ? 'fw-bold text-orange bg-white bg-opacity-25' : 'text-white' }}" href="{{ route('videojuego.index') }}">
+                            Videojuegos
+                        </a>
                     </li>
                 @endauth
             </ul>
 
             <ul class="navbar-nav ms-auto">
-
                 @guest
                     @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: white;" href="{{ route('login') }}">Login</a>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" href="{{ route('login') }}">Login</a>
                         </li>
                     @endif
-
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: white;" href="{{ route('register') }}">Register</a>
+                        <li class="nav-item mx-1">
+                            <a class="nav-link text-white" href="{{ route('register') }}">Register</a>
                         </li>
                     @endif
-
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle"
-                           href="#" role="button" data-bs-toggle="dropdown"
-                           style="background-color: rgba(255,255,255,0.2); border-radius: 15px; color: white;">
-                           
-                           <strong>{{ Auth::user()->name }}</strong>
+                    <li class="nav-item dropdown mx-1">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" style="background-color: rgba(255,255,255,0.2); border-radius: 15px;">
+                            <strong>{{ Auth::user()->name }}</strong>
                         </a>
-
                         <div class="dropdown-menu dropdown-menu-end" style="border-radius: 10px;">
-
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
                         </div>
                     </li>
                 @endguest
-
             </ul>
         </div>
     </div>
@@ -95,11 +84,11 @@
             </div>
         </div>
         @endif
-        <main class="py-4">
+        <main class="@if(request()->path() == '/' || request()->path() == 'welcomeLogeado' || request()->routeIs('videojuego.index')) py-5 @else py-4 @endif">
             @yield('content')
         </main>
     </div>
-    
+
 </body>
 
 </html>

@@ -12,7 +12,7 @@
     @section("content")
 
     <div class="container">
-        <header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom">
+        <header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom" style="margin-top: 100px;">
             <span class="fs-4">
                 <h1><strong>Catálogo de Videojuegos</strong></h1>
             </span>
