@@ -25,7 +25,7 @@
     </div>
 
     <div class="container mt-5">
-        <div class="text-center">
+        <div>
 
 
             @auth
@@ -42,7 +42,7 @@
             @forelse($videojuegos as $videojuego)
             <div class="col-md-4 mb-4">
                 <div class="card h-100">
-                    <img src="{{ $videojuego->imagen_url }}" class="card-img-top" alt="{{ $videojuego->nombre }}" style="height: 200px; object-fit: scale-down;">
+                    <img src="{{ $videojuego->imagen_url }}" class="card-img-top" alt="{{ $videojuego->nombre }}" style="height: 200px; object-fit: scale-down; padding-top: 20px;">
 
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $videojuego->nombre }}</h5>
