@@ -17,10 +17,10 @@ class CarritoController extends Controller
 
         return view('carrito', compact('carrito'));
     }
-// si el videojuego ya esta en el carrito se augmenta la cantidad, 
-// si quieres añadir mas de lo que hay en stock te pone el maximo que hay posible
+    // si el videojuego ya esta en el carrito se augmenta la cantidad, 
+    // si quieres añadir mas de lo que hay en stock te pone el maximo que hay posible
 
-    public function add(Videojuego $videojuego)     
+    public function add(Videojuego $videojuego)
     {
         $item = Carrito::where('user_id', Auth::id())
             ->where('videojuego_id', $videojuego->id)
@@ -52,21 +52,22 @@ class CarritoController extends Controller
 
     // si quieres añadir una cantidad mayor a la que hay en stock te pone el maximo que hay posible y sino excedes el maximo te pone la cantidad que queires
     public function update(Request $request, Carrito $carrito)
-{
-    $request->validate([
-        "cantidad" => "required|integer|min:1"
-    ]);
+    {
+        $request->validate([
+            "cantidad" => "required|integer|min:1"
+        ]);
 
-    if ($request->cantidad > $carrito->videojuego->stock) {
-        return back()->with("error", "Stock máximo alcanzado");
+        if ($request->cantidad > $carrito->videojuego->stock) {
+            return back()->with("error", "Stock máximo alcanzado");
+        }
+
+        $carrito->update([
+            "cantidad" => $request->cantidad
+        ]);
+
+        return back()->with("success", "Cantidad actualizada correctamente");
     }
-
-    $carrito->update([
-        "cantidad" => $request->cantidad
-    ]);
-
-    return back()->with("success", "Cantidad actualizada correctamente");
-}
+    
 
     public function remove(Carrito $carrito)
     {
@@ -74,4 +75,15 @@ class CarritoController extends Controller
 
         return redirect()->back()->with('success', 'Videojuego eliminado del carrito.');
     }
+    
+    //funcion para mostrar la vista para pagar 
+    public function pagar(carrito $carrito)
+    {
+        return view('carrito.pagar', compact('carrito'));
+    }
+    //procesar pago
+    public function procesar(Request $request)
+{
+    return redirect()->back()->with('success', 'Pago realizado correctamente!');
+}
 }

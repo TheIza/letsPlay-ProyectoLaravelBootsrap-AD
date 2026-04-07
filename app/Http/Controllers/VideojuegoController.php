@@ -36,7 +36,7 @@ class VideojuegoController extends Controller
             'genero' => 'required|string|max:255',
             'plataforma' => 'required|string|max:255',
             'fecha_lanzamiento' => 'required|date',
-            'precio' => 'required|numeric',
+            'precio' => 'required|numeric|min:1',   // Con el 'min:1' obligo a que elprecio sea positivo y que no sea gratis, esto seria como un x > 1
             'imagen_url' => 'nullable|string|max:255',
             'stock' => 'nullable|integer|max:255'
         ]);
@@ -67,12 +67,13 @@ class VideojuegoController extends Controller
      */
     public function update(Request $request, Videojuego $videojuego)
     {
+     
         $request->validate([
             'nombre' => 'required|string|max:255',
             'genero' => 'required|string|max:255',
             'plataforma' => 'required|string|max:255',
             'fecha_lanzamiento' => 'required|date',
-            'precio' => 'required|numeric',
+            'precio' => 'required|numeric|min:1',    // Con el 'min:1' obligo a que elprecio sea positivo y que no sea gratis, esto seria como un x > 1
             'imagen_url' => 'nullable|string|max:255',
             'stock' => 'nullable|integer|max:255'
         ]);

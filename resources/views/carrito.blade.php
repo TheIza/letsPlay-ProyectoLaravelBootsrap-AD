@@ -56,7 +56,8 @@
     <br>
     <div class="text-end mb-5">
         <h4>Total: ${{ number_format($carrito->sum(fn($i) => $i->videojuego->precio * $i->cantidad), 2) }}</h4>
-        <a href="" class="btn btn-success">Pagar ahora</a>
+        <a href="{{ route('carrito.pagar') }}" class="btn btn-success">Pagar ahora</a>
+        
     </div>
     @endif
 </div>

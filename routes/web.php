@@ -24,5 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/carrito/add/{videojuego}', [CarritoController::class, 'add'])->name('carrito.add');
     Route::patch('/carrito/update/{carrito}', [CarritoController::class, 'update'])->name('carrito.update');
     Route::delete('/carrito/remove/{carrito}', [CarritoController::class, 'remove'])->name('carrito.remove');
+    Route::get('/carrito/pagar', [CarritoController::class, 'pagar'])->name('carrito.pagar');
+    Route::post('/pago/procesar', [CarritoController::class, 'procesar'])->name('pago.procesar');
 });
 
