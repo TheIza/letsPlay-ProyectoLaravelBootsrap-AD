@@ -12,7 +12,8 @@ class Videojuego extends Model
         'plataforma',
         'fecha_lanzamiento',
         'precio',
-        'imagen_url'
+        'imagen_url',
+        'stock'
     ];
 
    

@@ -57,6 +57,11 @@
             <input type="text" name="imagen_url" id="imagen_url" class="form-control">
 
         </div>
+        <div>
+            <label for="stock">Stock</label>
+
+            <input type="number" name="stock" id="stock" class="form-control">
+        </div>
         <br>
         <button type="submit" class="btn btn-primary">Confirmar</button>
 <br>

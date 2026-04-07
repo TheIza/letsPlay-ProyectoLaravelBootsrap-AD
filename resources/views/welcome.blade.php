@@ -19,6 +19,10 @@
             <div class="carousel-item text-center">
                 <img src="{{ asset('build/assets/images/game3.png') }}" class="d-inline-block" style="max-height: 100%; max-width: 100%;" alt="Juego 3">
             </div>
+            <div class="carousel-item text-center">
+                <img src="{{ asset('build/assets/images/game4.png') }}" class="d-inline-block" style="max-height: 100%; max-width: 100%;" alt="Juego 3">
+            </div>
+            
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#simpleCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>

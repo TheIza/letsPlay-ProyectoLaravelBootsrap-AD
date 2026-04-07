@@ -38,6 +38,7 @@ class VideojuegoController extends Controller
             'fecha_lanzamiento' => 'required|date',
             'precio' => 'required|numeric',
             'imagen_url' => 'nullable|string|max:255',
+            'stock' => 'nullable|integer|max:255'
         ]);
 
         Videojuego::create($request->all());
@@ -73,6 +74,7 @@ class VideojuegoController extends Controller
             'fecha_lanzamiento' => 'required|date',
             'precio' => 'required|numeric',
             'imagen_url' => 'nullable|string|max:255',
+            'stock' => 'nullable|integer|max:255'
         ]);
 
         $videojuego->update($request->all());

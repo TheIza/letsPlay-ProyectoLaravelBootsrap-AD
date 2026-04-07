@@ -5,7 +5,11 @@
 <div class="container mt-5" style=" padding-top: 20px;">
     <div class="text-center p-4 rounded-3" style="background-color: #ffe5b4;">
         <h1>¡Hola, {{ Auth::user()->name }}!</h1>
+        @if(Auth::user()->email === 'admin@admin.com')
+        <p>Estas logeado como <strong style="color:  red;">ADMINISTRADOR</strong>, podras editar, crear y borrar productos.</p>
+        @else
         <p>Bienvenido a <strong>Let's Play</strong>, todos los juegos que puedas imaginar estan aqui.</p>
+        @endif
     </div>
 <div style=" background-color: #ccc;">
     <div id="simpleCarousel" class="carousel slide mt-4" data-bs-ride="carousel" style="max-width: 600px; margin: auto; border: 2px solid #ccc;" >
@@ -18,6 +22,9 @@
             </div>
             <div class="carousel-item text-center">
                 <img src="{{ asset('build/assets/images/game3.png') }}" class="d-inline-block" style="max-height: 100%; max-width: 100%;" alt="Juego 3">
+            </div>
+            <div class="carousel-item text-center">
+                <img src="{{ asset('build/assets/images/game4.png') }}" class="d-inline-block" style="max-height: 100%; max-width: 100%;" alt="Juego 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#simpleCarousel" data-bs-slide="prev">

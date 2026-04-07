@@ -19,13 +19,12 @@ return new class extends Migration
         $table->date('fecha_lanzamiento');
         $table->double('precio');
         $table->string('imagen_url');
+        $table->integer('stock');
         $table->timestamps();
     });
 }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
         Schema::dropIfExists('videojuegos');

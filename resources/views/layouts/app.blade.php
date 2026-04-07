@@ -24,6 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm fixed-top" style="background: #ff8c00; border-radius: 0 0 15px 15px;">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ route('welcomeLogeado') }}">
+                    
                     <img src="{{ asset('build/assets/images/letsplay.jpg') }}" alt="Let's play logo" width="70" height="70" style="border-radius: 10px; margin-right: 10px;">
                     <strong class="text-white">Let's play</strong>
                 </a>

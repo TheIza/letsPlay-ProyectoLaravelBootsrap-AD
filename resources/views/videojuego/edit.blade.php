@@ -59,11 +59,18 @@
             <input type="text" name="imagen_url" id="imagen_url" class="form-control" value="{{ $videojuego->imagen_url }}">
 
         </div>
-<br>
+        <div class="form-group">
+
+            <label for="stock">Stock</label>
+
+            <input type="number" name="stock" id="stock" class="form-control" value="{{ $videojuego->stock }}">
+
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">Confirmar</button>
-<br>
-<br>
-         <a href="{{ route('videojuego.index') }}" style="color: white; border: 1px solid red; background-color: red; border-radius: 5px; padding: 8px; text-decoration: none;" >VOLVER</a>
+        <br>
+        <br>
+        <a href="{{ route('videojuego.index') }}" style="color: white; border: 1px solid red; background-color: red; border-radius: 5px; padding: 8px; text-decoration: none;">VOLVER</a>
 
 
     </form>
