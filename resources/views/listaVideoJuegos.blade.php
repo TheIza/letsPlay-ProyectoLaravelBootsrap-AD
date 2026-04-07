@@ -1,7 +1,6 @@
     @extends('layouts.app')
     {{--
-    * Añadir formulario para pagar 
-    * arreglar stock, si el stock es 0 no puedo añadir al carrito, si hay 2 y añadp 3 debe tener un maximo
+   
     --}}
 
 
