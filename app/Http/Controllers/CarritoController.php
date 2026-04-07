@@ -53,14 +53,19 @@ class CarritoController extends Controller
     // si quieres añadir una cantidad mayor a la que hay en stock te pone el maximo que hay posible y sino excedes el maximo te pone la cantidad que queires
     public function update(Request $request, Carrito $carrito)
 {
+    $request->validate([
+        "cantidad" => "required|integer|min:1"
+    ]);
+
     if ($request->cantidad > $carrito->videojuego->stock) {
-        return redirect()->back();
+        return back()->with("error", "Stock máximo alcanzado");
     }
 
-    $carrito->cantidad = $request->cantidad;
-    $carrito->save();
+    $carrito->update([
+        "cantidad" => $request->cantidad
+    ]);
 
-    return redirect()->back();
+    return back()->with("success", "Cantidad actualizada correctamente");
 }
 
     public function remove(Carrito $carrito)
