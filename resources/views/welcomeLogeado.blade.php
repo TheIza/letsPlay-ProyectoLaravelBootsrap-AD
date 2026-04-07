@@ -5,9 +5,13 @@
 <div class="container mt-5" style=" padding-top: 20px;">
     <div class="text-center p-4 rounded-3" style="background-color: #ffe5b4;">
         <h1>¡Hola, {{ Auth::user()->name }}!</h1>
+        @auth
         @if(Auth::user()->email === 'admin@admin.com')
         <p>Estas logeado como <strong style="color:  red;">ADMINISTRADOR</strong>, podras editar, crear y borrar productos.</p>
-        @else
+        @endif
+        @endauth
+        
+        @if(Auth::user()->email !== 'admin@admin.com')
         <p>Bienvenido a <strong>Let's Play</strong>, todos los juegos que puedas imaginar estan aqui.</p>
         @endif
     </div>

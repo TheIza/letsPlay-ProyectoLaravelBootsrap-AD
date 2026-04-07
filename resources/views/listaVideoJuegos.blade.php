@@ -10,11 +10,16 @@
     <div class="container" style="padding: -50px;">
         <header class="d-flex flex-wrap justify-content-between py-3 mb-4 border-bottom" style="margin-top: 100px;">
             <span class="fs-4">
-                @if(auth()->user()->email === 'admin@admin.com')    {{--si eres admin puedes editar crear y borrar--}}
-                <h1><strong>Catálogo de Videojuegos <p style="color:  red;">MODO ADMINISTRADOR </p></strong></h1>
-                @else
-                <h1><strong>Catálogo de Videojuegos</strong></h1>
+                @auth
+                @if(auth()->user()->email === 'admin@admin.com') {{--si eres admin puedes editar crear y borrar--}}
+                <h1>
+                    <p style="color:  red;">MODO ADMINISTRADOR </p></strong>
+                </h1>
                 @endif
+                @endauth
+
+                <h1><strong>Catálogo de Videojuegos</strong></h1>
+
             </span>
         </header>
     </div>
@@ -22,15 +27,15 @@
     <div class="container mt-5">
         <div class="text-center">
 
-            
+
             @auth
-             @if(auth()->user()->email === 'admin@admin.com')
+            @if(auth()->user()->email === 'admin@admin.com')
             <a href="{{ route("videojuego.create") }}" class="btn btn-primary">
                 Añadir Videojuego
             </a>
-            </div>
-       
-            @endif
+        </div>
+
+        @endif
 
         @endauth
         <div class="row mt-4">
@@ -51,26 +56,32 @@
                             <p class="card-text"><strong>Stock:</strong> {{ $videojuego->stock }}</p>
                             @endif
 
-                            <div class="mt-auto">
-                                <a href="{{ route('videojuego.show', $videojuego) }}" style="background-color: rgb(133, 133, 133); border: 1px solid rgb(133, 133, 133); border-radius: 5px; color: white; padding: 10px 20px; text-decoration: none;">Ver</a>
+                            <div class="mt-auto" style=" justify-content: center; display: flex; gap: 10px;">
+                                <a href="{{ route('videojuego.show', $videojuego) }}" style="background-color: rgb(133, 133, 133); border: 1px solid rgb(133, 133, 133); border-radius: 5px; color: white; padding: 10px 20px; text-decoration: none;">
+                                    Ver</a>
+                                @if($videojuego->stock > 0)
+                                <form action="{{ route('carrito.add', $videojuego) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    <button style="background-color: rgb(255, 140, 0); border: 1px solid rgb(255, 140, 0); border-radius: 5px; color: white; padding: 10px 20px; ">
+                                        Añadir al carrito</button>
+                                </form>
+                                @endif
                                 @auth
-                                  @if(auth()->user()->email === 'admin@admin.com')
-                                <a href="{{ route('videojuego.edit', $videojuego) }}" class="btn btn-warning" style="background-color: rgb(255, 193, 7); border: 1px solid rgb(255, 193, 7); border-radius: 5px; color: white; padding: 10px 20px; ">Editar</a>
+
+                                @if(auth()->user()->email === 'admin@admin.com')
+                                <a href="{{ route('videojuego.edit', $videojuego) }}" class="btn btn-warning" style="background-color: rgb(255, 193, 7); border: 1px solid rgb(255, 193, 7); border-radius: 5px; color: white; padding: 10px 20px; ">
+                                    Editar</a>
                                 <form action="{{ route('videojuego.destroy', $videojuego) }}" method="POST" class="d-inline">
 
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return confirm('¿Eliminar?')" style="background-color: rgb(199, 36, 4); border: 1px solid rgb(199, 36, 4); border-radius: 5px; color: white; padding: 10px 20px; ">Eliminar</button>
+                                    <button onclick="return confirm('¿Eliminar?')" style="background-color: rgb(199, 36, 4); border: 1px solid rgb(199, 36, 4); border-radius: 5px; color: white; padding: 10px 20px; ">
+                                        Eliminar</button>
 
                                 </form>
                                 @endif
                                 @endauth
-                                @if($videojuego->stock > 0)
-                                <form action="{{ route('carrito.add', $videojuego) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <button style="background-color: rgb(255, 140, 0); border: 1px solid rgb(255, 140, 0); border-radius: 5px; color: white; padding: 10px 20px; ">Añadir al carrito</button>
-                                </form>
-                                @endif
+
                             </div>
                     </div>
                 </div>
